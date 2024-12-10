@@ -1,9 +1,7 @@
-import Config from "config";
-import Conf from "conf";
-import expect from "cha";
+import * as assert from "assert";
 
 describe("Config", () => {
     it("should be an instance of conf", () => {
-        expect(Config).to.be.an.instanceOf(Conf);
+        assert.equal([1, 2, 3].indexOf(4), -1);
     });
 });

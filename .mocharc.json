@@ -1,0 +1,8 @@
+{
+    "spec": "test/**/*.test.ts",
+    "watch-extensions": ["ts"],
+    "recursive": true,
+    "reporter": "spec",
+    "timeout": 60000,
+    "node-option": ["import=tsx"]
+}
