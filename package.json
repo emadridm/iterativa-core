@@ -4,7 +4,8 @@
     "description": "The core of the iterativa ecosystem",
     "type": "module",
     "scripts": {
-        "test": "mocha"
+        "test": "mocha",
+        "prepare": "del-cli dist && tsc"
     },
     "repository": {
         "type": "git",
@@ -18,6 +19,7 @@
         "@types/mocha": "^10.0.10",
         "@types/node": "^22.10.1",
         "chai": "*",
+        "del-cli": "^6.0.0",
         "mocha": "*",
         "tsx": "^4.19.2",
         "typescript": "^5.7.2"
