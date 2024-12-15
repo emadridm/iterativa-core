@@ -5,7 +5,8 @@
     "type": "module",
     "scripts": {
         "test": "mocha",
-        "prepare": "del-cli dist && tsc"
+        "prepare": "del-cli dist && tsc",
+        "prepack": "npm run prepare"
     },
     "repository": {
         "type": "git",
