@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "The core of the iterativa ecosystem",
     "type": "module",
+    "files": ["dist"],
     "scripts": {
         "test": "mocha",
         "prepare": "del-cli dist && tsc",
