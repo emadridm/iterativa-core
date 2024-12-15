@@ -2,7 +2,6 @@
     "name": "@iterativa/core",
     "version": "1.0.0",
     "description": "The core of the iterativa ecosystem",
-    "main": "index.js",
     "type": "module",
     "scripts": {
         "test": "mocha"
@@ -11,20 +10,13 @@
         "type": "git",
         "url": "iterativa-core"
     },
-    "keywords": [
-        "iterativa",
-        "core",
-        "dapp",
-        "database",
-        "db",
-        "ipfs",
-        "p2p"
-    ],
+    "keywords": ["iterativa", "core", "dapp", "database", "db", "ipfs", "p2p"],
     "author": "Enrique Madrid",
     "license": "ISC",
     "devDependencies": {
         "@types/chai": "^5.0.1",
         "@types/mocha": "^10.0.10",
+        "@types/node": "^22.10.1",
         "chai": "*",
         "mocha": "*",
         "tsx": "^4.19.2",

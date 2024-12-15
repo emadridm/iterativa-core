@@ -1,7 +1,25 @@
-import * as assert from "assert";
+import assert from "assert";
+import Config from "../src/config.js";
 
 describe("Config", () => {
-    it("should be an instance of conf", () => {
-        assert.equal([1, 2, 3].indexOf(4), -1);
+    it("should let setting the fullname property", () => {
+        const config = new Config();
+        assert.doesNotThrow(() => {
+            config.set("fullname", "Enrique Madrid");
+        });
+    });
+
+    it("should let setting the email property", () => {
+        const config = new Config();
+        assert.doesNotThrow(() => {
+            config.set("email", "emadridm@gmail.com");
+        });
+    });
+
+    it("should not let setting any other property", () => {
+        const config = new Config();
+        assert.throws(() => {
+            config.set("foo", "bar");
+        });
     });
 });

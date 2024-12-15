@@ -1,5 +1,23 @@
 import Conf from "conf";
 
-const Config = new Conf();
+const schema = {
+    fullname: {
+        type: "string",
+        minLength: 1,
+    },
+    email: {
+        type: "string",
+        format: "email",
+    },
+};
 
-export default Config;
+const rootSchema = {
+    type: "object",
+    additionalProperties: false,
+};
+
+export default class Config extends Conf {
+    constructor() {
+        super({ projectName: "iterativa", schema, rootSchema });
+    }
+}
