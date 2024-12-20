@@ -1,5 +1,5 @@
 import assert from "assert";
-import Config from "../src/config.js";
+import Config from "@iterativa/core/config";
 
 describe("Config", () => {
     it("should let setting the fullname property", () => {
