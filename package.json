@@ -6,7 +6,7 @@
     "files": ["dist"],
     "exports": {
         ".": "./dist/index.js",
-        "./*": "./dist/*"
+        "./*": "./dist/*.js"
     },
     "scripts": {
         "test": "mocha",
