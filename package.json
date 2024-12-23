@@ -1,6 +1,6 @@
 {
     "name": "@iterativa/core",
-    "version": "1.0.0",
+    "version": "0.0.0",
     "description": "The core of the iterativa ecosystem",
     "type": "module",
     "files": ["dist"],
