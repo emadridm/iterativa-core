@@ -35,9 +35,11 @@
         "@types/chai": "^5.0.1",
         "@types/mocha": "^10.0.10",
         "@types/node": "^22.10.1",
+        "@types/sinon": "^17.0.3",
         "chai": "*",
         "del-cli": "^6.0.0",
         "mocha": "*",
+        "sinon": "^19.0.2",
         "tsx": "^4.19.2",
         "typescript": "^5.7.2"
     },
