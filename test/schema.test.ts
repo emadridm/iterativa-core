@@ -23,17 +23,20 @@ describe("Schema", () => {
     });
 
     describe("#validate()", () => {
-        let AjvStub: sinon.SinonStubbedInstance<Ajv2020>;
-        let schema: Schema;
+        let ajvStub: sinon.SinonStubbedInstance<Ajv2020>;
 
         beforeEach(() => {
-            AjvStub = sinon.createStubInstance(Ajv2020);
-            schema = new Schema();
+            ajvStub = sinon.createStubInstance(Ajv2020);
+        });
+
+        afterEach(() => {
+            sinon.restore();
         });
 
         it("should call #validateSchema() on Ajv JSON Schema validator library", () => {
+            const schema = new Schema(ajvStub);
             schema.validate();
-            expect(AjvStub.validateSchema.calledOnce).to.be.true;
+            expect(ajvStub.validateSchema.calledOnce).to.be.true;
         });
     });
 });

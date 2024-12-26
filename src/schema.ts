@@ -1,7 +1,11 @@
 import { Ajv2020 } from "ajv/dist/2020.js";
 
 export class Schema {
-    constructor() {}
+    private validator: Ajv2020;
+
+    constructor(validator?: Ajv2020) {
+        this.validator = validator ? validator : new Ajv2020();
+    }
 
     public toJSONSchema(): Object {
         return {
@@ -9,9 +13,16 @@ export class Schema {
         };
     }
 
+    public setValidator(validator: Ajv2020): void {
+        this.validator = validator;
+    }
+
+    public getValidator(): Ajv2020 {
+        return this.validator;
+    }
+
     public validate(): boolean {
-        const ajv = new Ajv2020();
-        ajv.validateSchema(this.toJSONSchema(), false);
+        this.getValidator().validateSchema(this.toJSONSchema(), false);
         return false;
     }
 }
