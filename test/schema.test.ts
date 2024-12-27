@@ -20,6 +20,11 @@ describe("Schema", () => {
                 "https://json-schema.org/draft/2020-12/schema",
             );
         });
+
+        it("should create a valid JSON Schema version 200-12 by default", () => {
+            const schema = new Schema();
+            expect(schema.validate()).to.be.true;
+        });
     });
 
     describe("#validate()", () => {
