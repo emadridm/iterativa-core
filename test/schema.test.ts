@@ -2,9 +2,14 @@ import { expect } from "chai";
 import * as sinon from "sinon";
 import { Schema } from "../src/schema";
 import { Ajv2020 } from "ajv/dist/2020";
+import { createDatabase } from "../src/ipdb";
 
 describe("Schema", () => {
     it("should have a method called #validate", () => {
+        expect(Schema.prototype.validate).to.be.a("function");
+    });
+
+    it("should have a method called #save", () => {
         expect(Schema.prototype.validate).to.be.a("function");
     });
 
@@ -42,6 +47,16 @@ describe("Schema", () => {
             const schema = new Schema(ajvStub);
             schema.validate();
             expect(ajvStub.validateSchema.calledOnce).to.be.true;
+        });
+    });
+
+    describe("#save()", () => {
+        it("should save the JSON Schema in the Interativa database", async () => {
+            const ipdb = createDatabase();
+            const schema = new Schema({ ipdb });
+            schema.save();
+            const count: number = await schema.countDocuments();
+            expect(count).to.be.increases(1);
         });
     });
 });

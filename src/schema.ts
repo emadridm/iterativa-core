@@ -1,6 +1,8 @@
 import { Ajv2020 } from "ajv/dist/2020.js";
+import { Database } from "./ipdb.js";
+import { resolve } from "dns";
 
-export class Schema {
+export class Schema implements Database {
     private _schema: Object = {};
     private validator: Ajv2020;
 
@@ -32,5 +34,9 @@ export class Schema {
             return true;
         }
         return false;
+    }
+
+    public save(): void {
+        console.log("saved!");
     }
 }
