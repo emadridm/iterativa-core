@@ -2,7 +2,7 @@ import { expect } from "chai";
 import * as sinon from "sinon";
 import { Schema } from "../src/schema";
 import { Ajv2020 } from "ajv/dist/2020";
-import { createDatabase } from "../src/ipdb";
+import createDatabase from "../src/ipdb";
 
 describe("Schema", () => {
     it("should have a method called #validate", () => {
@@ -33,10 +33,10 @@ describe("Schema", () => {
     });
 
     describe("#validate()", () => {
-        let ajvStub: sinon.SinonStubbedInstance<Ajv2020>;
+        let validator: sinon.SinonStubbedInstance<Ajv2020>;
 
         beforeEach(() => {
-            ajvStub = sinon.createStubInstance(Ajv2020);
+            validator = sinon.createStubInstance(Ajv2020);
         });
 
         afterEach(() => {
@@ -44,19 +44,19 @@ describe("Schema", () => {
         });
 
         it("should call #validateSchema() on Ajv JSON Schema validator library", () => {
-            const schema = new Schema(ajvStub);
+            const schema = new Schema({ validator });
             schema.validate();
-            expect(ajvStub.validateSchema.calledOnce).to.be.true;
+            expect(validator.validateSchema.calledOnce).to.be.true;
         });
     });
 
     describe("#save()", () => {
         it("should save the JSON Schema in the Interativa database", async () => {
             const ipdb = createDatabase();
-            const schema = new Schema({ ipdb });
-            schema.save();
-            const count: number = await schema.countDocuments();
-            expect(count).to.be.increases(1);
+            const schema = new Schema(ipdb);
+            await schema.save();
+            const count = await schema.countDocuments();
+            expect(count).to.be.equal(1);
         });
     });
 });

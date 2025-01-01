@@ -1,9 +1,5 @@
-export interface Database {
-    countDocuments: () => Promise<number>;
-}
+export interface Database {}
 
-export interface IPDB {}
-
-export function createDatabase(): IPDB {
+export default function createDatabase(): Database {
     return {};
 }

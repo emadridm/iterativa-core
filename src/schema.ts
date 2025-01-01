@@ -1,13 +1,22 @@
 import { Ajv2020 } from "ajv/dist/2020.js";
 import { Database } from "./ipdb.js";
-import { resolve } from "dns";
+
+export type SchemaOptions = {
+    validator?: Ajv2020;
+    ipdb?: Database;
+};
+
+const schemaDefaultOptions: SchemaOptions = {
+    validator: undefined,
+    ipdb: undefined,
+};
 
 export class Schema implements Database {
     private _schema: Object = {};
     private validator: Ajv2020;
 
-    constructor(validator?: Ajv2020) {
-        this.validator = validator ? validator : new Ajv2020();
+    constructor(options: SchemaOptions = schemaDefaultOptions) {
+        this.validator = options.validator ? options.validator : new Ajv2020();
         this.init();
     }
 
@@ -36,7 +45,23 @@ export class Schema implements Database {
         return false;
     }
 
-    public save(): void {
-        console.log("saved!");
+    public async save(): Promise<void> {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve("saved!");
+            }, 10);
+        }).then((data) => {
+            console.log(data);
+        });
+    }
+
+    public async countDocuments(): Promise<number> {
+        return new Promise<number>((resolve) => {
+            setTimeout(() => {
+                resolve(0);
+            }, 10);
+        }).then((data) => {
+            return data;
+        });
     }
 }
