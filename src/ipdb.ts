@@ -1,5 +1,11 @@
-export interface Database {}
+import { BaseDatabase, OrbitDB } from "@orbitdb/core";
 
-export default function createDatabase(): Database {
-    return {};
+export default class Database {
+    public orbitdb?: OrbitDB;
+
+    constructor() {}
+
+    public open(): Promise<OrbitDB> {
+        return null;
+    }
 }

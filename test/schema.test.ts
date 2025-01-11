@@ -52,10 +52,11 @@ describe("Schema", () => {
 
     describe("#save()", () => {
         it("should save the JSON Schema in the Interativa database", async () => {
-            const ipdb = createDatabase();
-            const schema = new Schema(ipdb);
+            const schema = new Schema();
+            await schema.open();
             await schema.save();
             const count = await schema.countDocuments();
+            await schema.close();
             expect(count).to.be.equal(1);
         });
     });
