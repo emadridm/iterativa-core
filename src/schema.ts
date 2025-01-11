@@ -1,5 +1,5 @@
 import { Ajv2020 } from "ajv/dist/2020.js";
-import { Database } from "./ipdb.js";
+import Database from "./ipdb.js";
 
 export type SchemaOptions = {
     validator?: Ajv2020;
@@ -11,7 +11,7 @@ const schemaDefaultOptions: SchemaOptions = {
     ipdb: undefined,
 };
 
-export class Schema implements Database {
+export class Schema {
     private _schema: Object = {};
     private validator: Ajv2020;
 

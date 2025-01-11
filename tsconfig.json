@@ -7,7 +7,8 @@
         "strict": true,
         "target": "es2022",
         "esModuleInterop": true,
-        "moduleResolution": "node16"
+        "moduleResolution": "nodenext",
+        "skipLibCheck": true
     },
-    "include": ["./src/**/*.ts"]
+    "include": ["src", "@types"]
 }

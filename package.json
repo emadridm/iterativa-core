@@ -3,7 +3,9 @@
     "version": "0.0.0",
     "description": "The core of the iterativa ecosystem",
     "type": "module",
-    "files": ["dist"],
+    "files": [
+        "dist"
+    ],
     "exports": {
         ".": "./dist/index.js",
         "./*": "./dist/*.js"
@@ -18,7 +20,15 @@
         "type": "git",
         "url": "iterativa-core"
     },
-    "keywords": ["iterativa", "core", "dapp", "database", "db", "ipfs", "p2p"],
+    "keywords": [
+        "iterativa",
+        "core",
+        "dapp",
+        "database",
+        "db",
+        "ipfs",
+        "p2p"
+    ],
     "author": "Enrique Madrid",
     "license": "ISC",
     "devDependencies": {
