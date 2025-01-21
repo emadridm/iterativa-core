@@ -1,16 +1,20 @@
 export interface ActionResult {
-    log: string;
+    log?: string;
+    message?: string;
 }
 
-export default class Acctions {
+export default abstract class Acctions {
     constructor() {}
 
-    public async execute(action: string, options: any): Promise<ActionResult> {
+    public async execute(
+        action: string,
+        params: any = undefined,
+    ): Promise<ActionResult> {
         if ((this as any)[action]) {
-            return (this as any)[action](options);
+            return (this as any)[action](params);
         } else {
             return {
-                log: "jaja",
+                message: "the action (class method) does not exist",
             };
         }
     }

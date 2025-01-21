@@ -22,12 +22,24 @@ class SomeClass extends Acctions {
 
 describe("Maupertuis", function () {
     describe("Actions", function () {
-        it("should execute any method of type Action(options: ActionOptions): Promise<ActionResult>", async function () {
-            const someInstance = new SomeClass();
-            const result = await someInstance.execute("someAction", {
-                param: "success",
+        describe("#execute()", function () {
+            it("should execute any subclass method of type (options: ActionOptions): Promise<ActionResult>", async function () {
+                const someInstance = new SomeClass();
+                const result = await someInstance.execute("someAction", {
+                    param: "success",
+                });
+                expect(result.log).to.be.equal("ok");
             });
-            expect(result.log).to.be.equal("ok");
+
+            it('should return "the action (class method) does not exists"', async function () {
+                const someInstance = new SomeClass();
+                const result = await someInstance.execute(
+                    "thisMethodDoesNotExist",
+                );
+                expect(result.message).to.be.equal(
+                    "the action (class method) does not exist",
+                );
+            });
         });
     });
 });
