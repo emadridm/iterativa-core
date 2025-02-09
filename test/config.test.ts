@@ -1,5 +1,5 @@
 import assert from "assert";
-import Config from "../../src/config/config.js";
+import Config from "../src/config/config.js";
 
 describe("Config", () => {
     it("should let setting the fullname property", () => {

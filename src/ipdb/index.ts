@@ -11,12 +11,13 @@ export class CreateDatabase extends Action<DatabaseParams, ActionStatus> {
 
     public async run(): Promise<ActionStatus> {
         return new Promise((resolve, reject) => {
-            this.status = { message: "jaja" };
+            this.status = { message: "fail" };
             setTimeout(() => {
-                if (Math.random() == 1) {
+                if (this.params.name) {
+                    this.status.message = `The database "${this.params.name}" was created!`;
                     resolve(this.status);
                 } else {
-                    reject({ message: "fail" });
+                    reject(this.status);
                 }
             }, 2000);
         });
