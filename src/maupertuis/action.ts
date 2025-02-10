@@ -1,16 +1,20 @@
-export type ActionParams = {
+export interface ActionParams {
+    actionID: string;
     [key: string]: any;
-};
+}
 
-export type ActionStatus = {
-    message: string;
-};
+export interface ActionStatus {
+    actionStatus: string;
+}
 
-export abstract class Action<TP extends ActionParams, TS extends ActionStatus> {
+export abstract class Action<
+    TP extends ActionParams,
+    TS extends ActionStatus = ActionStatus,
+> {
     status: ActionStatus;
 
     constructor(public params: TP) {
-        this.status = { message: "" };
+        this.status = { actionStatus: "" };
     }
 
     public abstract run(): Promise<TS>;

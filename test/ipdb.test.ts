@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { CreateDatabase } from "../../src/ipdb";
+import { CreateDatabase } from "../src/ipdb";
 
 describe("IPDB", function () {
     describe("CreateDatabase", function () {

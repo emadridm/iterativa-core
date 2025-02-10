@@ -1,14 +1,9 @@
 {
+    "extends": "@tsconfig/node20/tsconfig.json",
     "compilerOptions": {
         "declaration": true,
-        "module": "Node16",
         "outDir": "dist",
-        "rootDir": "src",
-        "strict": true,
-        "target": "es2022",
-        "esModuleInterop": true,
-        "moduleResolution": "nodenext",
-        "skipLibCheck": true
+        "rootDir": "src"
     },
     "include": ["src", "@types"]
 }

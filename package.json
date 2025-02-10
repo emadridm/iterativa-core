@@ -3,7 +3,9 @@
     "version": "0.0.0",
     "description": "The core of the iterativa ecosystem",
     "type": "module",
-    "files": ["dist"],
+    "files": [
+        "dist"
+    ],
     "exports": {
         "types": "./src/",
         ".": "./dist/index.js",
@@ -19,11 +21,20 @@
         "type": "git",
         "url": "iterativa-core"
     },
-    "keywords": ["iterativa", "core", "dapp", "database", "db", "ipfs", "p2p"],
+    "keywords": [
+        "iterativa",
+        "core",
+        "dapp",
+        "database",
+        "db",
+        "ipfs",
+        "p2p"
+    ],
     "author": "Enrique Madrid",
     "license": "ISC",
     "devDependencies": {
         "@orbitdb/core-types": "^1.0.11",
+        "@tsconfig/node20": "^20.1.4",
         "@types/chai": "^5.0.1",
         "@types/lodash": "^4.17.13",
         "@types/mocha": "^10.0.10",
@@ -39,8 +50,10 @@
     },
     "dependencies": {
         "-": "^0.0.1",
+        "@chainsafe/libp2p-gossipsub": "^14.1.0",
         "@orbitdb/core": "^2.4.3",
         "ajv": "^8.17.1",
+        "blockstore-level": "^2.0.1",
         "conf": "^13.1.0",
         "D": "^1.0.0",
         "helia": "^5.1.1",
