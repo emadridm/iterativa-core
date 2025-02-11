@@ -8,12 +8,15 @@ export interface ActionStatus {
 }
 
 export abstract class Action<
-    TP extends ActionParams,
+    TP extends ActionParams = ActionParams,
     TS extends ActionStatus = ActionStatus,
 > {
     status: ActionStatus;
 
     constructor(public params: TP) {
+        if (!this.params.actionID) {
+            this.params.actionID = this.constructor.name;
+        }
         this.status = { actionStatus: "" };
     }
 
